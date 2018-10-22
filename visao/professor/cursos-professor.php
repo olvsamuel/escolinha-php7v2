@@ -76,6 +76,8 @@ if(isset($_SESSION['privateUser'])){
     </form>
 
     <?php
+    $mDAO = new MateriaDAO();
+    $array = $mDAO->buscarTdMateria();
     if(isset($_POST['filtrar'])){
       $pesquisa = $_POST['txtfiltro'];
       $filtro = $_POST['selfiltro'];
