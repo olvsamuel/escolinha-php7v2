@@ -48,10 +48,10 @@ if(isset($_SESSION['privateUser'])){
 
 </head>
 <body>
-    
+
 <div class='container'>
 <h2>Consulta de Disciplinas</h2>
-    
+
 
     <form name="filtrar" method="post" action="">
 
@@ -90,6 +90,8 @@ if(isset($_SESSION['privateUser'])){
         }
 
       }else{
+        $mDAO = new MateriaDAO();
+        $array = $mDAO->buscarTdMateria();
         echo "Digite uma pesquisa!";
       }//fecha else
 
@@ -116,9 +118,7 @@ if(isset($_SESSION['privateUser'])){
 
     <?php
 
-      $mDAO = new MateriaDAO();
-      $array = $mDAO->buscarTdMateria();
-    
+
     foreach($array as $a){
       echo "<tr>";
       echo "<td>$a->idmateria</td>";
@@ -160,12 +160,12 @@ if(isset($_SESSION['privateUser'])){
         $dompdf->render();
 
         $dompdf->stream(
-            "dados.pdf", 
+            "dados.pdf",
             array(
                 "Attachment" => true
             )
         );
- 
+
       }
 ?>
 
