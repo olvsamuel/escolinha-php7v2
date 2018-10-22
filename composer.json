@@ -1,0 +1,16 @@
+{
+    "name": "samueloliveira/escolinha-php",
+    "description": "Portal de alunos e professores com PDO",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "samuel",
+            "email": "olvsamuel.edu@gmail.com"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "4.1.3",
+        "components/jquery": "^3.3",
+        "dompdf/dompdf": "^0.8.2"
+    }
+}

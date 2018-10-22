@@ -1,0 +1,49 @@
+insert into estado values(
+    null, "Rio Grande do Sul", "RS"
+);
+
+insert into cidade values(
+    null, "Alvorada", 1
+);
+
+insert into bairro values(
+    null, "Sumaré", 1, 2
+);
+
+insert into rua values(
+    null, "Av Getulio Vargas", 00000-566, 1, 2, 2
+);
+
+insert into curso values(
+    null, "Engenharia da Computacao", 23000, 4200
+);
+
+insert into materia values(
+    null, "Redes", 60
+);
+
+insert into pessoa values(
+    null, "Samuel Oliveira", "masculino", "22/05/1995", "144.867.922-44", 1, 2, 2, 2
+),(
+    null, "Maluco Beleza", "masculino", "26/04/1978", "124.365.475-58", 1, 2, 2, 2
+);
+
+
+
+insert into professor values(
+    null, 4, 2
+);
+
+insert into turma values(
+    null, 2, 2
+);
+
+insert into aluno values(
+    null, 8, 8, 8, 4, "ap", 3, 2, 1
+);
+
+insert into usuario values(
+    null, "samuel", "1f591a4c440e29f36bc86358a832dcd1", "aluno", 2, null
+),(
+    null, "maluco", "1f591a4c440e29f36bc86358a832dcd1", "professor", null, 2
+);

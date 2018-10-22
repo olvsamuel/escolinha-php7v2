@@ -1,0 +1,6 @@
+
+
+
+insert into aluno values(
+    null, 6, 10, 8, 3, "ap", 3, 2, 2
+);

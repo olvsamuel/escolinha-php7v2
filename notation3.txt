@@ -1,0 +1,51 @@
+use escolav2;
+
+insert into estado values(
+    null, "Rio Grande do Sul", "RS"
+);
+
+insert into cidade values(
+    null, "Porto Alegre", 1
+);
+
+insert into bairro values(
+    null, "Partenon", 1, 1
+);
+
+insert into rua values(
+    null, "Av Ipiranga", 85963-566, 1, 1, 1
+);
+
+insert into curso values(
+    null, "Ciencia da Computacao", 20000, 4000
+);
+
+insert into materia values(
+    null, "Engenharia de Software", 60
+);
+
+insert into pessoa values(
+    null, "Joao Silva", "masculino", "25/05/1995", "147.852.963-86", 1, 1, 1, 1
+),(
+    null, "Marcio Malandragem", "masculino", "20/02/1976", "487.965.852-69", 1, 1, 1, 1
+);
+
+
+
+insert into professor values(
+    null, 2, 1
+);
+
+insert into turma values(
+    null, 1, 1
+);
+
+insert into aluno values(
+    null, 9, 9, 9, 2, "ap", 1, 1, 1
+);
+
+insert into usuario values(
+    null, "joao", "1f591a4c440e29f36bc86358a832dcd1", "aluno", 1, null
+),(
+    null, "marcio", "1f591a4c440e29f36bc86358a832dcd1", "professor", null, 1
+);

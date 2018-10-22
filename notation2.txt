@@ -1,0 +1,230 @@
+use escolav2;
+
+create table estado(
+	idestado bigint auto_increment primary key,
+	nome varchar(40) not null,
+	sigla varchar(40) not null
+);
+
+create table cidade(
+	idcidade bigint auto_increment primary key,
+	nome varchar(40) not null,
+	idestado bigint,
+	foreign key (idestado) references estado (idestado)
+);
+
+create table bairro(
+	idbairro bigint auto_increment primary key,
+	nome varchar(40) not null,
+	idestado bigint,
+	idcidade bigint,
+	foreign key (idestado) references estado(idestado),
+	foreign key (idcidade) references cidade(idcidade)
+);
+
+create table rua(
+	idrua bigint auto_increment primary key,
+	nome varchar(50) not null,
+	cep char(9),
+	idestado bigint,
+	idcidade bigint,
+	idbairro bigint,
+	foreign key (idestado) references estado(idestado),
+	foreign key (idcidade) references cidade(idcidade),
+	foreign key (idbairro) references bairro(idbairro)
+);
+
+
+
+create table curso(
+    idcurso bigint auto_increment primary key,
+    nome varchar(40),
+    preco decimal(10,2),
+    ch int
+);
+
+create table materia(
+    idmateria bigint auto_increment primary key,
+    nome varchar(40) not null,
+    ch int
+);
+
+
+
+create table pessoa(
+    idpessoa bigint auto_increment primary key,
+    nome varchar(30) not null,
+	sexo varchar(30) not null,
+	datanasc varchar(30) not null,
+    cpf char(14) not null,
+    idestado bigint,
+	idcidade bigint,
+	idbairro bigint,
+    idrua bigint,
+	foreign key (idestado) references estado(idestado),
+	foreign key (idcidade) references cidade(idcidade),
+	foreign key (idbairro) references bairro(idbairro),
+    foreign key (idrua) references rua(idrua)
+);
+
+
+create table professor(
+    idprofessor bigint auto_increment primary key,
+    idpessoa bigint,
+    idcurso bigint,
+    foreign key (idpessoa) references pessoa(idpessoa),
+    foreign key (idcurso) references curso(idcurso)
+);
+
+create table turma(
+	idturma bigint auto_increment primary key,
+	nome varchar(40),
+	idprofessor bigint,
+    idmateria bigint,
+	foreign key(idprofessor) references professor(idprofessor),
+    foreign key(idmateria) references materia(idmateria)
+);
+
+create table aluno(
+    idaluno bigint auto_increment primary key,
+    n1 decimal(10,2),
+    n2 decimal(10,2),
+    media decimal(10,2),
+    faltas int,
+    statusaluno char(2),
+    idpessoa bigint,
+    idcurso bigint,
+	idturma bigint,
+	foreign key (idturma) references turma (idturma),
+    foreign key (idcurso) references curso(idcurso),
+    foreign key (idpessoa) references pessoa(idpessoa)
+);
+
+create table usuario(
+	idUsuario bigint auto_increment primary key,
+	login varchar(30) not null,
+	senha varchar(100) not null,
+	tipo varchar(25) not null,
+	idaluno bigint,
+	idprofessor bigint,
+	foreign key (idaluno) references aluno(idaluno),
+	foreign key (idprofessor) references professor(idprofessor)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
+/*
+create table professor(
+	idprofessor bigint auto_increment primary key,
+	nome varchar(30) not null,
+	sexo varchar(30) not null,
+	datanasc varchar(30) not null,
+    cpf char(14) not null,
+	idestado bigint,
+	idcidade bigint,
+	idbairro bigint,
+    idrua bigint,
+	foreign key (idestado) references estado(idestado),
+	foreign key (idcidade) references cidade(idcidade),
+	foreign key (idbarro) references bairro(idbairro),
+    foreign key (idrua) references rua(idrua)
+);
+
+create table turma(
+	idturma bigint auto_increment primary key,
+	materia varchar(30) not null,
+	idprofessor bigint not null,
+	foreign key(idprofessor) references professor(idprofessor)
+);
+
+create table aluno(
+	idaluno bigint auto_increment primary key,
+	nome varchar(30) not null,
+	sexo varchar(30) not null,
+	datanasc varchar(30) not null,
+    cpf char(14) not null,
+    n1 double(10,2),
+    n2 double(10,2),
+    idturma bigint,
+    idestado bigint,
+	idcidade bigint,
+	idbairro bigint,
+    idrua bigint,
+	foreign key (idestado) references estado(idestado),
+	foreign key (idcidade) references cidade(idcidade),
+	foreign key (idbarro) references bairro(idbairro),
+    foreign key (idrua) references rua(idrua),
+	foreign key (idturma) references turma(idturma)
+);
+
+
+
+create table usuario(
+	idUsuario bigint auto_increment primary key,
+	login varchar(30) not null,
+	senha varchar(100) not null,
+	tipo varchar(25) not null,
+	idaluno bigint,
+	idprofessor bigint,
+	foreign key (idaluno) references aluno(idaluno),
+	foreign key (idprofessor) references professor(idprofessor)
+);
+*/
